@@ -5,12 +5,13 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { getData2 } from '../Redux/NewStory/action';
 import "./styles/newStories.css"
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 
 export default function NewStories() {
-
+    const [page,setPage]= React.useState(1)
 const dispatch = useDispatch()
 const {data} =useSelector((store)=>store.newStories);
 const navigate = useNavigate()
@@ -24,7 +25,10 @@ console.log('data:', data)
 
     },[dispatch])
 
-
+    const handlePage=(e,p) => {
+        setPage(p)
+        
+               }
 
   return (
     <div style={{marginTop:"80px"}}>
@@ -57,6 +61,12 @@ console.log('data:', data)
      
 )}
   </div>
+
+  <Stack style={{marginTop:"80px",marginBottom:"80px"}} alignItems="center" spacing={2}>
+     
+     <Pagination onChange={handlePage} count={10} page={page}  color="primary" />
+    
+   </Stack>
   </div>
   );
 }

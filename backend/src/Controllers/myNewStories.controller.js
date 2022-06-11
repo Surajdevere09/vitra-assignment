@@ -4,9 +4,10 @@ const router = express.Router();
 
 
 router.get("", async (req, res) => {
-
+    const page = req.query.page || 1;
+    const size = req.query.size || 10;
     try {
-const myNewStories = await NewStory.find().lean().exec();
+const myNewStories = await NewStory.find().skip((page-1)*size).limit(size).lean().exec();
 
 let arr =[];
 for(let i = 0; i < myNewStories.length; i++) {
