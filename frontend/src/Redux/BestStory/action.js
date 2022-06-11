@@ -23,10 +23,12 @@ type: "ERROR",
 
 
 export const getData3 = (page)=>(dispatch)=>{
-
+dispatch(Loading())
 axios.get(`https://vitra-news.herokuapp.com/beststories?page=${page}&size=6`).then((res)=>{
 //console.log('res:', res.data)
 dispatch(getBestData(res.data))
+}).catch((err)=>{
+    dispatch(Error())
 })
 }
 

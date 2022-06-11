@@ -7,13 +7,15 @@ import { getData2 } from '../Redux/NewStory/action';
 import "./styles/newStories.css"
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import ServerError from './ServerError';
 
 
 export default function NewStories() {
     const [page,setPage]= React.useState(1)
 const dispatch = useDispatch()
-const {data} =useSelector((store)=>store.newStories);
+const {data,loading,error} =useSelector((store)=>store.newStories);
 const navigate = useNavigate()
 console.log('data:', data)
 
@@ -29,6 +31,22 @@ console.log('data:', data)
         setPage(p)
         
                }
+if(loading){
+return(
+    <Box sx={{ display: 'flex',mt:30,ml:85 }}>
+    <CircularProgress />
+  </Box> 
+
+)
+}
+else if(error){
+    return (
+        <ServerError />
+      
+    )
+   }
+else{
+
 
   return (
     <div style={{marginTop:"80px"}}>
@@ -69,5 +87,6 @@ console.log('data:', data)
    </Stack>
   </div>
   );
+}
 }
 

@@ -8,6 +8,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import ServerError from './ServerError';
 
 
 
@@ -42,9 +43,8 @@ if(loading){
 }
 else if(error){
     return (
-   
-       <h1 style={{marginTop:"80px"}}>Server Error Please try after some time</h1>
-   
+        <ServerError />
+      
     )
    }
 else{

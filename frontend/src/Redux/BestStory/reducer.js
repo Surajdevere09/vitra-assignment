@@ -10,7 +10,7 @@ export const  bestStoryReducer=(store=initialState,action)=>{
     switch(action.type){
 
         case "GETBESTDATA":{
-            return {...store, data:action.payload}
+            return {...store, data:action.payload,loading:false}
         }
         case "LOADING":{
             return {...store, loading:true,error:false}
