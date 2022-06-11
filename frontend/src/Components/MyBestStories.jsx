@@ -19,11 +19,11 @@ console.log('data:', data)
 
     React.useEffect(()=>{
 
-        dispatch(getData3())
+        dispatch(getData3(page))
      
 
 
-    },[dispatch])
+    },[dispatch,page])
 
     const handlePage=(e,p) => {
         setPage(p)

@@ -1,12 +1,17 @@
 import axios from "axios"
 
-// export const getStoryAction =(data)=>{
-
-//     return {
-//     type:"GETDATA",
-//     payload:data,
-//     }
-// }
+export const Loading =()=>{
+    return {
+type: "LOADING",
+       
+    }
+}
+export const Error =()=>{
+    return {
+type: "ERROR",
+       
+    }
+}
 
 export const getTopStoryAction =(data)=>{
 
@@ -18,10 +23,12 @@ export const getTopStoryAction =(data)=>{
 
 
 export const getData = (page)=>(dispatch)=>{
-
+dispatch(Loading())
 axios.get(`https://vitra-news.herokuapp.com/topStories?page=${page}&size=6`).then((res)=>{
 //console.log('res:', res.data)
 dispatch(getTopData(res.data))
+}).catch((err)=>{
+dispatch(Error())
 })
 }
 

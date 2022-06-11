@@ -8,10 +8,23 @@ export const getBestStoryAction =(data)=>{
     }
 }
 
+export const Loading =()=>{
+    return {
+type: "LOADING",
+       
+    }
+}
+export const Error =()=>{
+    return {
+type: "ERROR",
+       
+    }
+}
 
-export const getData3 = ()=>(dispatch)=>{
 
-axios.get("https://vitra-news.herokuapp.com/beststories").then((res)=>{
+export const getData3 = (page)=>(dispatch)=>{
+
+axios.get(`https://vitra-news.herokuapp.com/beststories?page=${page}&size=6`).then((res)=>{
 //console.log('res:', res.data)
 dispatch(getBestData(res.data))
 })
