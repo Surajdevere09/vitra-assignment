@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getData, getTopData } from '../Redux/GetStory/action';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 
 
 export default function WovenImageList() {
-
+    const [page,setPage]= React.useState(1)
 const dispatch = useDispatch()
 const {data} =useSelector((store)=>store.topStories);
 const navigate = useNavigate()
@@ -18,15 +19,19 @@ console.log('data:', data)
 
     React.useEffect(()=>{
 
-        dispatch(getData())
+        dispatch(getData(page))
      
 
 
-    },[dispatch])
+    },[dispatch,page])
 
-
+    const handlePage=(e,p) => {
+        setPage(p)
+        
+               }
 
   return (
+    <div> 
   <div className="topContainer">
 
 {data && data.map((e)=>
@@ -48,6 +53,12 @@ console.log('data:', data)
 
      
 )}
+</div>
+   <Stack alignItems="center" spacing={2}>
+     
+      <Pagination onChange={handlePage} count={10} page={page}  color="primary" />
+     
+    </Stack>
   </div>
   );
 }

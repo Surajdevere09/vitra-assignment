@@ -29,7 +29,10 @@ console.log('data:', data)
   return (
     <div style={{marginTop:"80px"}}>
      <Typography style={{textAlign: 'center'}} variant="h3" gutterBottom component="div">
+       
+        <marquee scrollamount="22" width="60%" direction="right" height="30%">
         Best Stories
+    </marquee>
       </Typography>
       <div  className="topContainer2">
 

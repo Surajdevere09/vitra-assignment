@@ -17,9 +17,9 @@ export const getTopStoryAction =(data)=>{
 }
 
 
-export const getData = ()=>(dispatch)=>{
+export const getData = (page)=>(dispatch)=>{
 
-axios.get("https://vitra-news.herokuapp.com/topStories").then((res)=>{
+axios.get(`https://vitra-news.herokuapp.com/topStories?page=${page}&size=2`).then((res)=>{
 //console.log('res:', res.data)
 dispatch(getTopData(res.data))
 })
@@ -27,7 +27,7 @@ dispatch(getTopData(res.data))
 
 export const getTopData = (arr)=>(dispatch)=>{
     //console.log(arr)
-    axios.get("https://vitra-news.herokuapp.com/stories").then((res)=>{
+    axios.get(`https://vitra-news.herokuapp.com/stories`).then((res)=>{
     //console.log('res:', res.data)
   let newarr=[];
   for(let i=0; i<res.data.length; i++){

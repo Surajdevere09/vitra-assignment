@@ -4,13 +4,14 @@ const router = express.Router();
 
 
 router.get("", async (req, res) => {
-
+    const page = req.query.page || 1;
+    const size = req.query.size || 10;
     try {
-const topStories = await TopStory.find().lean().exec();
+const topStories = await TopStory.find().skip((page-1)*size).limit(size).lean().exec();
 
 let arr =[];
 for(let i = 0; i < topStories.length; i++) {
-    arr.push(topStories [i].id)
+    arr.push(topStories[i].id)
 }
 console.log('topStories:', topStories)
 

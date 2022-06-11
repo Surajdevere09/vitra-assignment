@@ -9,7 +9,10 @@ const HomePage = () => {
     
  <Box sx={{ width: '100%',mt:8 }}>
  <Typography style={{textAlign: 'center'}} variant="h3" gutterBottom component="div">
+       
+        <marquee scrollamount="22" width="60%" direction="right" height="30%">
         Top Stories
+    </marquee>
       </Typography>
       <WovenImageList />
 
