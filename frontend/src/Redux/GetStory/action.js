@@ -19,7 +19,7 @@ export const getTopStoryAction =(data)=>{
 
 export const getData = (page)=>(dispatch)=>{
 
-axios.get(`https://vitra-news.herokuapp.com/topStories?page=${page}&size=2`).then((res)=>{
+axios.get(`https://vitra-news.herokuapp.com/topStories?page=${page}&size=6`).then((res)=>{
 //console.log('res:', res.data)
 dispatch(getTopData(res.data))
 })

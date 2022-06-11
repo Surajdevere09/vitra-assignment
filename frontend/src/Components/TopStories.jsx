@@ -54,7 +54,7 @@ console.log('data:', data)
      
 )}
 </div>
-   <Stack alignItems="center" spacing={2}>
+   <Stack style={{marginTop:"80px",marginBottom:"80px"}} alignItems="center" spacing={2}>
      
       <Pagination onChange={handlePage} count={10} page={page}  color="primary" />
      
