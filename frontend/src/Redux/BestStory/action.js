@@ -11,7 +11,7 @@ export const getBestStoryAction =(data)=>{
 
 export const getData3 = ()=>(dispatch)=>{
 
-axios.get("http://localhost:3001/beststories").then((res)=>{
+axios.get("https://vitra-news.herokuapp.com/beststories").then((res)=>{
 //console.log('res:', res.data)
 dispatch(getBestData(res.data))
 })
@@ -19,7 +19,7 @@ dispatch(getBestData(res.data))
 
 export const getBestData = (arr)=>(dispatch)=>{
     //console.log(arr)
-    axios.get("http://localhost:3001/stories").then((res)=>{
+    axios.get("https://vitra-news.herokuapp.com/stories").then((res)=>{
     //console.log('res:', res.data)
   let newarr=[];
   for(let i=0; i<res.data.length; i++){
