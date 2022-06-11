@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.json())
-app.use("/stories")
+app.use("/stories", storyController);
+app.use("/topstories", topStoryController);
 app.get("/", (req, res) => {
 
     res.send("Welcome to vitra News")
