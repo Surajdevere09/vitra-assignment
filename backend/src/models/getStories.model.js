@@ -7,7 +7,16 @@ const storySchema = new mongoose.Schema({
     id: { type:Number,required:true,unique:true},
     score: { type:Number,required:true},
     time: { type:Date, default:Date.now()},
-    title: "Python Developers Survey 2020 Results",
-    type: "story",
-    url: 
+    title:{ type:String,required:true},
+    type: { type:String,required:true},
+    url: { type:String,required:true},
+    image:{ type:String,required:true},
+},
+{
+    timestamps: true,
+    versionKey:false,
 })
+
+const Story = mongoose.model("stories",storySchema);
+
+module.exports = Story
