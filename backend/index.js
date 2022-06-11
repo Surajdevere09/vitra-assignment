@@ -4,7 +4,7 @@ const storyController = require("./src/Controllers/getStories.controller");
 const topStoryController = require("./src/Controllers/myTopStories.controller");
 const newStoryController = require("./src/Controllers/myNewStories.controller");
 const bestStoryController = require("./src/Controllers/myBestStories.controller");
-
+const cors =require("cors")
 
 
 
@@ -12,7 +12,7 @@ const bestStoryController = require("./src/Controllers/myBestStories.controller"
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+app.use(cors())
 app.use(express.json())
 app.use("/stories", storyController);
 app.use("/topstories", topStoryController);
