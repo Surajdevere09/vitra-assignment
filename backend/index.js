@@ -3,6 +3,7 @@ const connect = require("./src/Configs/db")
 const storyController = require("./src/Controllers/getStories.controller");
 const topStoryController = require("./src/Controllers/myTopStories.controller");
 const newStoryController = require("./src/Controllers/myNewStories.controller");
+const bestStoryController = require("./src/Controllers/myBestStories.controller");
 
 
 
@@ -15,7 +16,8 @@ const app = express();
 app.use(express.json())
 app.use("/stories", storyController);
 app.use("/topstories", topStoryController);
-app.use("/newstories",newStoryController)
+app.use("/newstories",newStoryController);
+app.use("/beststories",bestStoryController);
 app.get("/", (req, res) => {
 
     res.send("Welcome to vitra News")
