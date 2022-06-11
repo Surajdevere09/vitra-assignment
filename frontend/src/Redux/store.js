@@ -2,13 +2,15 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import  { topStoryReducer } from  "./GetStory/reducer";
 import thunk from "redux-thunk";
 import { newStoryReducer } from "./NewStory/reducer";
+import { bestStoryReducer } from "./BestStory/reducer";
 
 
 
 const rootReducer = combineReducers({
 
    topStories:topStoryReducer,
-   newStories:newStoryReducer
+   newStories:newStoryReducer,
+   bestStories:bestStoryReducer
 })
 
 const logger =applyMiddleware(thunk)

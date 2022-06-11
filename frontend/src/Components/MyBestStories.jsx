@@ -3,8 +3,8 @@ import "./styles/topStories.css"
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import { getData2 } from '../Redux/NewStory/action';
 import "./styles/newStories.css"
+import { getData3 } from '../Redux/BestStory/action';
 
 
 
@@ -12,13 +12,13 @@ import "./styles/newStories.css"
 export default function BestStories() {
 
 const dispatch = useDispatch()
-const {data} =useSelector((store)=>store.newStories);
+const {data} =useSelector((store)=>store.bestStories);
 const navigate = useNavigate()
 console.log('data:', data)
 
     React.useEffect(()=>{
 
-        dispatch(getData2())
+        dispatch(getData3())
      
 
 
