@@ -1,10 +1,10 @@
 import * as React from 'react';
 import "./styles/topStories.css"
 import { useDispatch, useSelector } from 'react-redux';
-import { getData, getTopData } from '../Redux/GetStory/action';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-
+import { getData2 } from '../Redux/NewStory/action';
+import "./styles/newStories.css"
 
 
 
@@ -12,13 +12,13 @@ import { useNavigate } from 'react-router-dom';
 export default function NewStories() {
 
 const dispatch = useDispatch()
-const {data} =useSelector((store)=>store.topStories);
+const {data} =useSelector((store)=>store.newStories);
 const navigate = useNavigate()
 console.log('data:', data)
 
     React.useEffect(()=>{
 
-        dispatch(getData())
+        dispatch(getData2())
      
 
 
@@ -27,7 +27,11 @@ console.log('data:', data)
 
 
   return (
-  <div className="topContainer">
+    <div style={{marginTop:"80px"}}>
+     <Typography style={{textAlign: 'center'}} variant="h3" gutterBottom component="div">
+        New Stories
+      </Typography>
+      <div  className="topContainer2">
 
 {data && data.map((e)=>
 <div title="Click here to know more" key={e._id} style={{marginBottom:"100px"}}>
@@ -46,8 +50,10 @@ console.log('data:', data)
       </a>
      </div>
 
+
      
 )}
+  </div>
   </div>
   );
 }
