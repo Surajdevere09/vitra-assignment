@@ -6,7 +6,7 @@ https://vitra-news.herokuapp.com/
 Path- /Stories  , /topStories , /newstories , /beststories
 
 #Netlify deployed Link
-https://tubular-genie-a60a62.netlify.app/
+https://vitra-news.vercel.app/
 
 Path- "/" , "/newStories" , "/bestStories"
 
